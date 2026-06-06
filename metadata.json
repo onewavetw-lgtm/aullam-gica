@@ -1,0 +1,6 @@
+{
+  "name": "Pack Aula Mágica",
+  "description": "Sua sala de inglês mais bonita e organizada de forma instantânea. Materiais pedagógicos e decorativos prontos em PDF para baixar, imprimir e usar.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

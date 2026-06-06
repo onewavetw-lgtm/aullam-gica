@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-cream: #fff9fb;
+  --color-brand-dark: #120e2e;
+  --color-brand-teal: #6366f1;
+  --color-brand-sage: #f5f3ff;
+  
+  --color-brand-coral: #ff4e88;
+  --color-brand-coral-light: #fff0f5;
+  --color-brand-gold: #ffb800;
+  --color-brand-gold-light: #fffbea;
+  
+  --color-brand-primary: #8b5cf6;
+  --color-brand-primary-light: #f5f3ff;
+}
+
+/* Custom background animations and glows */
+.glow-on-hover:hover {
+  box-shadow: 0 10px 25px -5px rgba(255, 78, 136, 0.4);
+}
+
+.glow-teal:hover {
+  box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.3);
+}
+
+/* Custom hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Animations for floating cards and background shapes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(1deg); }
+  50% { transform: translateY(-10px) rotate(-1deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Scroll transition classes if needed */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+

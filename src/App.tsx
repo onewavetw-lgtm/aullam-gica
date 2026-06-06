@@ -110,19 +110,20 @@ export default function App() {
   ];
 
   useEffect(() => {
-    // Show first ticker after 3 seconds
+    // Show first ticker after 8 seconds (não atrapalha leitura inicial)
     const initialTimeout = setTimeout(() => {
       setShowTicker(true);
-    }, 3000);
+      // Auto-hide após 6 segundos
+      setTimeout(() => setShowTicker(false), 6000);
+    }, 8000);
 
-    // Periodically switch mockup notifications
+    // Periodicamente exibe nova notificação a cada 30s
     const interval = setInterval(() => {
-      setShowTicker(false);
-      setTimeout(() => {
-        setTickerIndex(prev => (prev + 1) % mockPurchases.length);
-        setShowTicker(true);
-      }, 800); // Small delay to let fade out finish
-    }, 10000);
+      setTickerIndex(prev => (prev + 1) % mockPurchases.length);
+      setShowTicker(true);
+      // Auto-hide após 6 segundos
+      setTimeout(() => setShowTicker(false), 6000);
+    }, 30000);
 
     return () => {
       clearTimeout(initialTimeout);
@@ -209,14 +210,14 @@ export default function App() {
           </motion.h1>
 
           {/* Centered Hero Digital Mockup — logo abaixo do título */}
-          <div className="flex justify-center w-full max-w-[400px] mx-auto">
+          <div className="flex justify-center w-full max-w-[480px] mx-auto">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
               className="w-full"
             >
-              <img src="/Plano Premium.png" alt="Plano Premium Mockup" className="w-[120%] max-w-none ml-[-10%] h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500" />
+              <img src="/Plano Premium.png" alt="Plano Premium Mockup" className="w-full h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500" />
             </motion.div>
           </div>
 

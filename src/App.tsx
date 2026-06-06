@@ -135,6 +135,10 @@ export default function App() {
     premium: 'https://pay.wiapy.com/rNN0R2OvEL',
   };
 
+  const scrollToPlans = () => {
+    document.getElementById('planos')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const triggerCheckout = (planId: 'basic' | 'premium') => {
     window.open(CHECKOUT_URLS[planId], '_blank');
   };
@@ -235,7 +239,7 @@ export default function App() {
           >
             <button
               id="hero-buy-btn"
-              onClick={() => triggerCheckout('premium')}
+              onClick={scrollToPlans}
               className="w-full sm:w-auto px-8 py-5 bg-[#22c55e] hover:bg-[#16a34a] text-white font-extrabold text-sm sm:text-base rounded-2xl transition-all duration-150 flex items-center justify-center gap-2.5 shadow-xl shadow-green-500/20 active:scale-98 cursor-pointer border-b-4 border-[#15803d]"
             >
               QUERO MEU PACK AULA MÁGICA AGORA <ArrowRight className="w-4 h-4 text-white" />
@@ -352,7 +356,7 @@ export default function App() {
           <div className="pt-2 text-center">
             <button
               id="slider-quick-buy-btn"
-              onClick={() => triggerCheckout('premium')}
+              onClick={scrollToPlans}
               className="px-8 py-5 bg-[#22c55e] hover:bg-[#16a34a] text-white font-extrabold text-sm sm:text-base rounded-2xl transition-all duration-150 inline-flex items-center gap-2 shadow-xl shadow-green-500/20 cursor-pointer"
             >
               QUERO MEU PACK AULA MÁGICA AGORA <ArrowRight className="w-4.5 h-4.5 text-white" />
@@ -494,8 +498,7 @@ export default function App() {
             </div>
 
             <button
-              id="before-after-buy-btn"
-              onClick={() => triggerCheckout('premium')}
+              onClick={scrollToPlans}
               className="mt-6 w-full py-4 bg-[#22c55e] hover:bg-[#16a34a] text-white font-black text-xs sm:text-sm rounded-xl transition-all duration-150 flex items-center justify-center gap-1.5 shadow-lg cursor-pointer border-b-2 border-green-800"
             >
               EXPERIMENTAR A TRANSFORMAÇÃO AGORA <ArrowRight className="w-4 h-4 text-white" />
@@ -553,9 +556,8 @@ export default function App() {
 
             <div className="pt-2 flex flex-col sm:flex-row gap-4 items-center">
               <button
-                id="block-produto-btn"
-                onClick={() => triggerCheckout('premium')}
-                className="w-full sm:w-auto px-7 py-4.5 bg-[#22c55e] hover:bg-[#16a34a] text-white font-extrabold text-sm rounded-xl transition-all duration-150 inline-flex items-center justify-center gap-2 shadow-xl shadow-green-500/15 border-b-2 border-[#15803d]"
+                onClick={scrollToPlans}
+                className="w-full sm:w-auto px-8 py-4 bg-[#22c55e] hover:bg-[#16a34a] text-white font-black text-sm sm:text-base rounded-2xl transition-all duration-150 flex items-center justify-center gap-2 shadow-xl shadow-green-500/20 border-b-4 border-[#15803d]"
               >
                 QUERO BAIXAR AGORA <ArrowRight className="w-3.5 h-3.5" />
               </button>
@@ -684,6 +686,7 @@ export default function App() {
 
       {/* BLOCO 6 — OFERTA E PLANOS */}
       <motion.section
+        id="planos"
         initial={{ opacity: 0, y: 35 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -878,7 +881,7 @@ export default function App() {
           <div className="pt-2">
             <button
               id="urgency-cta-btn"
-              onClick={() => triggerCheckout('premium')}
+              onClick={scrollToPlans}
               className="px-8 py-5 bg-brand-coral hover:bg-brand-coral/95 text-white font-extrabold text-sm sm:text-base rounded-2xl transition-all duration-150 inline-flex items-center gap-2 shadow-2xl scale-100 hover:scale-103 active:scale-98 cursor-pointer"
             >
               Garantir Meu Acesso com Desconto Extra <ArrowRight className="w-4.5 h-4.5 text-white" />
@@ -1097,7 +1100,7 @@ export default function App() {
                     id="submit-lightbox-action"
                     onClick={() => {
                       setActiveMaterial(null);
-                      triggerCheckout('premium');
+                      scrollToPlans();
                     }}
                     className="w-full bg-brand-coral hover:bg-brand-coral/90 text-white font-bold text-xs py-3 rounded-xl transition-all duration-150 flex items-center justify-center gap-1 animate-pulse"
                   >
